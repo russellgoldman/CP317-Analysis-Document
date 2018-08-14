@@ -18,12 +18,12 @@
           <b>Beer Buddy Analysis Document</b>
         </h1>
         <a href="https://github.com/russellgoldman/CP317-Beer-Finder" target="_blank">
-          <h4><u>v3.0</u></h4>
+          <h4><u>v1.0 Beta</u></h4>
         </a>
         <br /><br />
         <h4><b>Designed by:</b><h6>CP317 Software Engineering Students</h6></h4>
         <h4><b>Date Started:</b><h6>May 5th, 2018</h6></h4>
-        <h4><b>Date Completed:</b><h6>August 3rd, 2018 <i>(Expected)</h6></i>
+        <h4><b>Date Completed:</b><h6>August 14th, 2018</h6>
       </div>
     </div>
     <div class="container-fluid information">
@@ -40,7 +40,7 @@
             <br />
             <div>
               <p>
-                BeerBuddy will be a beer utility application that is web based. This application aims to be a useful tool to try out new kinds of beer regardless of beer expertise. Users will be presented an introductory page which will contain two modes: one for novice users and the second one for experienced users. After suitable search criteria is filled out, users will then be provided with beer recommendations catered to their individual knowledge and taste.
+                BeerBuddy will be a beer utility application that is web based. This application aims to be a useful tool to try out new kinds of beer regardless of beer expertise. Users will be presented an introductory page which will contain two modes: one for novice users and the second for experienced users. After suitable search criteria is filled out, users will then be provided with beer recommendations catered to their individual knowledge and taste.
               </p>
               <br />
             </div>
@@ -60,12 +60,6 @@
               <br />
               <ul>
                 <li>
-                  <h5>Brand</h5>
-                  <p>
-                    A table to hold individual brand information (name, country of origin)
-                  </p>
-                </li>
-                <li>
                   <h5>Beer</h5>
                   <p>
                     A table to hold individual beer information and foreign key relationships (info: name, colour, alcohol percentage; relation: brand, body type, container types)
@@ -78,15 +72,21 @@
                   </p>
                 </li>
                 <li>
-                  <h5>Rating</h5>
+                  <h5>Brand</h5>
                   <p>
-                    A table to hold rating information for individual beers (rating value from 1-5, rater name, date)
+                    A table to hold individual brand information (name, country of origin)
                   </p>
                 </li>
                 <li>
                   <h5>ContainerType</h5>
                   <p>
                     A table to hold container type information (can, bottle, keg)
+                  </p>
+                </li>
+                <li>
+                  <h5>Rating</h5>
+                  <p>
+                    A table to hold rating information for individual beers (rating value from 1-5, rater name, date)
                   </p>
                 </li>
                 <li>
@@ -106,21 +106,39 @@
               <br />
               <ul>
                 <li>
+                  <h5>BeerView</h5>
+                  <p>
+                    Where a user views information relevant to a Beer
+                  </p>
+                </li>
+                <li>
                   <h5>BrandView</h5>
                   <p>
                     Where a user views information relevant to a Brand
                   </p>
                 </li>
                 <li>
-                  <h5>BeerView</h5>
-                  <p>
-                    A table to hold individual beer information and foreign key relationships (info: name, colour, alcohol percentage; relation: brand, body type, container types)
-                  </p>
-                </li>
-                <li>
                   <h5>RatingView</h5>
                   <p>
                     Where a user views information relevant to a Rating
+                  </p>
+                </li>
+                <li>
+                  <h5>CreateBeerView</h5>
+                  <p>
+                    Where a user fills out and submits a form required to create a Beer
+                  </p>
+                </li>
+                <li>
+                  <h5>CreateBrandView</h5>
+                  <p>
+                    Where a user fills out and submits a form required to create a Brand
+                  </p>
+                </li>
+                <li>
+                  <h5>CreateRatingView</h5>
+                  <p>
+                    Where a user fills out and submits a form required to rate a Beer (create a Rating)
                   </p>
                 </li>
                 <li>
@@ -135,24 +153,6 @@
                     Where a user sees the results of a search for a Beer
                   </p>
                 </li>
-                <li>
-                  <h5>CreateBrandView</h5>
-                  <p>
-                    Where a user fills out and submits a form required to create a Brand
-                  </p>
-                </li>
-                <li>
-                  <h5>CreateBeerView</h5>
-                  <p>
-                    Where a user fills out and submits a form required to create a Beer
-                  </p>
-                </li>
-                <li>
-                  <h5>RateBeerView</h5>
-                  <p>
-                    Where a user fills out and submits a form required to rate a Beer (create a Rating)
-                  </p>
-                </li>
               </ul>
               <br />
             </div>
@@ -164,15 +164,15 @@
               <br />
               <ul>
                 <li>
-                  <h5>BrandController</h5>
-                  <p>
-                    Coordinates all activities related to Brand objects
-                  </p>
-                </li>
-                <li>
                   <h5>BeerController</h5>
                   <p>
                     Coordinates all activities related to Beer objects
+                  </p>
+                </li>
+                <li>
+                  <h5>BrandController</h5>
+                  <p>
+                    Coordinates all activities related to Brand objects
                   </p>
                 </li>
                 <li>
@@ -201,6 +201,75 @@
             <div>
               <h4>
                 <span class="subsection"><b><u>3.1</u></b></span>
+                Enter Beer Data
+              </h4>
+              <br />
+              <ul>
+                <li>
+                  <p class="pModified">CreateBeerView is created and takes input from user</p>
+                </li>
+                <li>
+                  <p class="pModified">BeerController creates a new Beer object with information from CreateBeerView</p>
+                </li>
+                <li>
+                  <p class="pModified">CreateBeerView is destroyed after use case ends</p>
+                </li>
+                <li>
+                  <p class="pModified">New BeerView can be created by BeerController pertaining to new Beer object</p>
+                </li>
+              </ul>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>3.2</u></b></span>
+                Enter Brand Data
+              </h4>
+              <br />
+              <ul>
+                <li>
+                  <p class="pModified">CreateBrandView is created and takes input from user</p>
+                </li>
+                <li>
+                  <p class="pModified">BrandController creates a new Brand object with information from CreateBrandView</p>
+                </li>
+                <li>
+                  <p class="pModified">CreateBrandView is destroyed after use case ends</p>
+                </li>
+                <li>
+                  <p class="pModified">New BrandView can be created by BrandController pertaining to new Brand object</p>
+                </li>
+              </ul>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>3.3</u></b></span>
+                Review
+              </h4>
+              <br />
+              <ul>
+                <li>
+                  <p class="pModified">CreateRatingView is created and takes input from user</p>
+                </li>
+                <li>
+                  <p class="pModified">RatingController creates a new Rating object with information from CreateRatingView</p>
+                </li>
+                <li>
+                  <p class="pModified">RatingController attaches the Rating object to the corresponding Beer object </p>
+                </li>
+                <li>
+                  <p class="pModified">CreateRatingView is destroyed after use case ends</p>
+                </li>
+                <li>
+                  <p class="pModified">New RatingView can be created by RatingController pertaining to new Rating object</p>
+                </li>
+              </ul>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>3.4</u></b></span>
                 Search
               </h4>
               <br />
@@ -219,84 +288,6 @@
                 </li>
                 <li>
                   <p class="pModified">SearchBeerView and SearchBeerResultsView are destroyed after use case ends</p>
-                </li>
-              </ul>
-              <br />
-            </div>
-            <div>
-              <h4>
-                <span class="subsection"><b><u>3.2</u></b></span>
-                Review
-              </h4>
-              <br />
-              <ul>
-                <li>
-                  <p class="pModified">CreateRatingView is created and takes input from user</p>
-                </li>
-                <li>
-                  <p class="pModified">RatingController creates a new Rating object with information from CreateRatingView</p>
-                </li>
-                <li>
-                  <p class="pModified">RatingController attaches the Rating object to the corresponding Beer object </p>
-                </li>
-                <li>
-                  <p class="pModified">(System to determine if rating is successfully added to database TBD)</p>
-                </li>
-                <li>
-                  <p class="pModified">CreateRatingView is destroyed after use case ends</p>
-                </li>
-                <li>
-                  <p class="pModified">New RatingView can be created by RatingController pertaining to new Rating object</p>
-                </li>
-              </ul>
-              <br />
-            </div>
-            <div>
-              <h4>
-                <span class="subsection"><b><u>3.3</u></b></span>
-                Enter Beer Data
-              </h4>
-              <br />
-              <ul>
-                <li>
-                  <p class="pModified">CreateBeerView is created and takes input from user</p>
-                </li>
-                <li>
-                  <p class="pModified">BeerController creates a new Beer object with information from CreateBeerView</p>
-                </li>
-                <li>
-                  <p class="pModified">(System to determine if beer is successfully added to database TBD)</p>
-                </li>
-                <li>
-                  <p class="pModified">CreateBeerView is destroyed after use case ends</p>
-                </li>
-                <li>
-                  <p class="pModified">New BeerView can be created by BeerController pertaining to new Beer object</p>
-                </li>
-              </ul>
-              <br />
-            </div>
-            <div>
-              <h4>
-                <span class="subsection"><b><u>3.4</u></b></span>
-                Enter Brand Data
-              </h4>
-              <br />
-              <ul>
-                <li>
-                  <p class="pModified">CreateBrandView is created and takes input from user</p>
-                </li>
-                <li>
-                  <p class="pModified">BrandController creates a new Brand object with information from CreateBrandView</p>
-                </li>
-                <li>
-                  <p class="pModified">(System to determine if brand is successfully added to database TBD)</p>
-                </li>
-                <li>
-                  <p class="pModified">CreateBrandView is destroyed after use case ends</p>
-                </li>
-                <li>
-                  <p class="pModified">New BrandView can be created by BrandController pertaining to new Brand object</p>
                 </li>
               </ul>
               <br />
@@ -339,17 +330,17 @@
               <br />
               <h5>Brand Controller Class</h5>
               <div class="text-center centeredImage">
-                <img src="./images/brandController.png" class="img-responsive" alt="Database UML">
+                <img src="./images/brandController.jpg" class="img-responsive" alt="Database UML">
               </div>
               <br  />
               <h5>Brand Controller Class</h5>
               <div class="text-center centeredImage">
-                <img src="./images/ratingController.png" class="img-responsive" alt="Database UML">
+                <img src="./images/ratingController.jpg" class="img-responsive" alt="Database UML">
               </div>
               <br  />
               <h5>Beer Controller Class</h5>
               <div class="text-center centeredImage">
-                <img src="./images/beerController.png" class="img-responsive" alt="Database UML">
+                <img src="./images/beerController.jpg" class="img-responsive" alt="Database UML">
               </div>
               <br  />
             </div>
@@ -395,6 +386,27 @@
                 <li>Matthew Wong</li>
                 <li>Yu He</li>
                 <li>Yanda Tao</li>
+              </ul>
+              <br />
+              <h4>
+                <span class="subsection"><b><u>5.4</u></b></span>
+                Version 4
+              </h4>
+              <ul>
+                <li>Tauqeer Choudhry</li>
+                <li>Jeremy Lickers-Earle</li>
+                <li>David Moreno-Bautista</li>
+                <li>Abdisalan Abdi</li>
+              </ul>
+              <br />
+              <h4>
+                <span class="subsection"><b><u>5.5</u></b></span>
+                Version 5
+              </h4>
+              <ul>
+                <li>Russell Goldman (Bootstrap Site)</li>
+                <li>Tauqeer Choudhry</li>
+                <li>Abdisalan Abdi</li>
               </ul>
               <br />
             </div>
